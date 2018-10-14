@@ -1,0 +1,70 @@
+*{
+    transition: all 0.3s ease-in-out 0s;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+}
+body{
+    margin: 0;
+    height: 100vh;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.preLoader {
+    content: '';
+    width: 35px;
+    height: 35px;
+    border-right: 3px solid transparent;
+    border-top: 3px solid red;
+    border-radius: 50%;
+    animation: spinnerX .7s linear infinite;
+}
+
+@keyframes spinnerX {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+#slideShowX{
+    height: 80vh;
+    background-image: url('../images/bmw100.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 80%;
+    border-radius: 7px;
+
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+}
+h2 {
+    color: white;
+    align-self: flex-end;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    text-shadow: 1px 1px 2px #000;
+}
+#slideShowX a{
+    text-decoration: none;
+    color: white;
+    font-size: 2em;
+    text-shadow: -2px 2px 5px #000000;
+    cursor: pointer;
+}
+#prev {
+    padding-left: 30px;
+}
+#next {
+    padding-right: 30px;
+}
+#prev:hover{
+    color: #6bf;
+    padding-left: 10px;
+    padding-right: 20px;
+}
+#next:hover{
+    color: #6bf;
+    padding-right: 10px;
+    padding-left: 20px; 
+}
