@@ -8,12 +8,20 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="preLoader"></div>
-    <div id="slideShowX">
+    <section class="preLoader"></section>
+    <section id="slideShowX">
         <a id="prev" onclick="previous()">&#10094</a>
-        <h2>Image 100</h2>
+        <h2>1/6</h2>
         <a id="next" onclick="nextPhoto()">&#10095</a>
-    </div>
+    </section>
+    <section class="thumbnails">
+        <img class="thumbs" src="assets/bmw100.jpg" onclick="imgSelect(0)">
+        <img class="thumbs" src="assets/bmw101.jpg" onclick="imgSelect(1)">
+        <img class="thumbs" src="assets/bmw102.jpg" onclick="imgSelect(2)">
+        <img class="thumbs" src="assets/bmw103.jpg" onclick="imgSelect(3)">
+        <img class="thumbs" src="assets/bmw104.jpg" onclick="imgSelect(4)">
+        <img class="thumbs" src="assets/bmw105.jpg" onclick="imgSelect(5)">
+    </section>
     <script src="js/script.js"></script>
 </body>
 </html>

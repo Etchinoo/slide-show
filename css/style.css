@@ -9,6 +9,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-flow: column;
 }
 .preLoader {
     content: '';
@@ -28,12 +29,11 @@ body{
 
 
 #slideShowX{
-    height: 80vh;
+    height: 70vh;
     background-image: url('../images/bmw100.jpg');
     background-size: cover;
     background-position: center;
     width: 80%;
-    border-radius: 7px;
 
     display: none;
     align-items: center;
@@ -67,4 +67,22 @@ h2 {
     color: #6bf;
     padding-right: 10px;
     padding-left: 20px; 
+}
+.thumbnails {
+    background: black;
+    height: 20vh;
+    width: 80%;
+
+    display: flex;
+    
+}
+.thumbs {
+    background-position: center;
+    background-size: cover;
+    width: 16.66%;
+    opacity: .6;
+    cursor: pointer;
+}
+.thumbs:hover {
+    opacity: 1;
 }

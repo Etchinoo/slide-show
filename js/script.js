@@ -3,9 +3,11 @@ var slideShowX = document.getElementById('slideShowX');
 var prev = document.getElementById('prev');
 var next = document.getElementById('next');
 var label = document.querySelector('h2');
+var images = ["bmw100", "bmw101", "bmw102", "bmw103", "bmw104", "bmw105"];
 
-var slideIndex = 100;
-var currentSlideX;
+var slideIndex = 0;
+var currentSlideX = '';
+var autoSlideShow;
 
 window.onload = function(){
     preLoader.style.display = "none";
@@ -13,40 +15,42 @@ window.onload = function(){
 }
 
 function checkIndex() {
-    if (slideIndex < 100) {
-        slideIndex = 105;
-    } else if(slideIndex > 105) {
-        slideIndex = 100;
+    // label.textContent = slideIndex + 1 +"/6";
+    if (slideIndex >= images.length) {
+        slideIndex = 0;
+    }
+    if (slideIndex < 0) {
+        slideIndex = images.length - 1;
+    }
+    if(label.textContent == "0"); {
+        label.textContent = slideIndex + 1 +"/6";
     }
 }
 
 function changeBg(){
-    currentSlideX = "url('images/bmw" + slideIndex +".jpg')"
+    currentSlideX = "url('assets/" + images[slideIndex] + ".jpg')";
     slideShowX.style.backgroundImage = currentSlideX;
 }
-
-label.textContent = "image " + slideIndex;
 
 function nextPhoto(){
     ++slideIndex;
     checkIndex();
-    changeBg();
-    label.textContent = "image " + slideIndex;
+    changeBg();    
+    clearInterval(autoSlideShow);
 }
 function previous(){
     --slideIndex;
     checkIndex();
     changeBg();
-    label.textContent = "image " + slideIndex;
+    clearInterval(autoSlideShow);
 }
-
-// var main = document.getElementById("mainx");
-// var prev = document.getElementById("prev");
-// var next = document.getElementById("next");
-
-// function nextPhoto () {
-//     main.style.backgroundImage = "url('../images/bmw101.jpg')";
-// }
-// function previousPhoto () {
-//     main.style.backgroundImage = "url('../images/bmw102.jpg')";
-// }
+function autoMotion() {
+    slideIndex++;
+    checkIndex();
+    changeBg();
+}
+function imgSelect(n) {
+    slideShowX.style.backgroundImage = "url('assets/" + images[n] + ".jpg')";
+    label.textContent = [n+1] + "/6";
+}
+autoSlideShow = setInterval(autoMotion, 2500);
