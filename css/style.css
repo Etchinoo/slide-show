@@ -86,3 +86,28 @@ h2 {
 .thumbs:hover {
     opacity: 1;
 }
+@media only screen and (max-width: 700px) {
+    .thumbnails{
+        width: 100%;
+    }
+    #slideShowX{
+        width: 100%;
+    }
+    #prev {
+        padding-left: 10px;
+    }
+    #next {
+        padding-right: 10px;
+    }
+    #prev:hover{
+        color: #6bf;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    #next:hover{
+        color: #6bf;
+        padding-right: 10px;
+        padding-left: 10px; 
+    }
+    
+}
