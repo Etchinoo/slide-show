@@ -23,7 +23,7 @@ function checkIndex() {
         slideIndex = images.length - 1;
     }
     if(label.textContent == "0"); {
-        label.textContent = slideIndex + 1 +"/6";
+        label.textContent = slideIndex + 1 +"/" + images.length;
     }
 }
 
@@ -51,6 +51,6 @@ function autoMotion() {
 }
 function imgSelect(n) {
     slideShowX.style.backgroundImage = "url('assets/" + images[n] + ".jpg')";
-    label.textContent = [n+1] + "/6";
+    label.textContent = [n+1] + "/" + images.length;
 }
 autoSlideShow = setInterval(autoMotion, 2500);

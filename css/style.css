@@ -30,7 +30,7 @@ body{
 
 #slideShowX{
     height: 70vh;
-    background-image: url('../images/bmw100.jpg');
+    background-image: url('../assets/bmw100.jpg');
     background-size: cover;
     background-position: center;
     width: 80%;
