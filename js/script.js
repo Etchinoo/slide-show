@@ -1,9 +1,11 @@
-var preLoader = document.querySelector('.preLoader');
-var slideShowX = document.getElementById('slideShowX');
-var prev = document.getElementById('prev');
-var next = document.getElementById('next');
-var label = document.querySelector('h2');
-var images = ["bmw100", "bmw101", "bmw102", "bmw103", "bmw104", "bmw105"];
+let preLoader = document.querySelector('.preLoader');
+let slideShowX = document.getElementById('slideShowX');
+let prev = document.getElementById('prev');
+let next = document.getElementById('next');
+let captionX = document.querySelector('h2');
+let images = ["bmw100.jpg", "bmw101.jpg", "bmw102.jpg", "bmw103.jpg", "bmw104.jpg", "bmw105.jpg"];
+let captionsX = ['BMW Blue', 'BMW White', 'BMW 5 Concept', 'BMW Blue', 'BMW Red', 'BMW Red 2'];
+let thumbnails = document.querySelector('.thumbnails');
 
 var slideIndex = 0;
 var currentSlideX = '';
@@ -12,24 +14,39 @@ var autoSlideShow;
 window.onload = function(){
     preLoader.style.display = "none";
     slideShowX.style.display = "flex";
+
+    for (let i = 0; i < images.length; ++i) {
+        let divX = document.createElement('div');
+        divX.classList = 'thumbs';
+        thumbnails.appendChild(divX);
+        // thumbnailsX.innerHTML += '<div class="thumbX"></div>';
+    
+        divX.style.backgroundImage = "url('assets/" + images[i] + "')";
+    
+        divX.onclick = function () {
+            clearInterval(autoSlideShow);
+            slideIndex = i;
+            changeBg();
+        }
+    }
 }
 
+
+
 function checkIndex() {
-    // label.textContent = slideIndex + 1 +"/6";
     if (slideIndex >= images.length) {
         slideIndex = 0;
     }
     if (slideIndex < 0) {
         slideIndex = images.length - 1;
     }
-    if(label.textContent == "0"); {
-        label.textContent = slideIndex + 1 +"/" + images.length;
-    }
+    
 }
 
 function changeBg(){
-    currentSlideX = "url('assets/" + images[slideIndex] + ".jpg')";
+    currentSlideX = "url('assets/" + images[slideIndex]+"')";
     slideShowX.style.backgroundImage = currentSlideX;
+    captionX.textContent = captionsX[slideIndex];
 }
 
 function nextPhoto(){
@@ -49,8 +66,9 @@ function autoMotion() {
     checkIndex();
     changeBg();
 }
-function imgSelect(n) {
-    slideShowX.style.backgroundImage = "url('assets/" + images[n] + ".jpg')";
-    label.textContent = [n+1] + "/" + images.length;
-}
+// function imgSelect(n) {
+//     clearInterval(autoSlideShow);
+//     slideShowX.style.backgroundImage = "url('assets/" + images[n] + "')";
+//     captionX.textContent = captionsX[n];
+// }
 autoSlideShow = setInterval(autoMotion, 2500);
